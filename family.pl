@@ -56,3 +56,21 @@ female( louise ).
 mother_of(Mother, Child) :-
     female(Mother),
     child_of(Child, Mother).
+
+grandparent_of(GrandParent, GrandChild) :-
+    child_of(Middle, GrandParent),
+    child_of(GrandChild, Middle).
+
+daughter_of(Daughter, Parent) :-
+    female(Daughter),
+    child_of(Daughter, Parent).
+
+sibling_of(A, B) :-
+    child_of(A, Parent),
+    child_of(B, Parent),
+    A \= B.
+    
+uncle_of(Uncle, Child) :-
+    child_of(Child, Parent),
+    sibling_of(Parent, Uncle),
+    male(Uncle).
