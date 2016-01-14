@@ -74,3 +74,19 @@ uncle_of(Uncle, Child) :-
     child_of(Child, Parent),
     sibling_of(Parent, Uncle),
     male(Uncle).
+
+niece_of(Niece, Relative) :-
+    female(Niece),
+    child_of(Niece, Parent),
+    sibling_of(Relative, Parent).
+
+great_grandfather_of(Ggf, Ggc) :-
+    grandparent_of(GrandParent, Ggc),
+    child_of(GrandParent, Ggf),
+    male(Ggf).
+
+ancestor_of(Ancestor, Descendant) :-
+    child_of(Descendant, Ancestor).
+ancestor_of(Ancestor, Descendant) :-
+    child_of(Middle, Ancestor),
+    ancestor_of(Middle, Descendant).
