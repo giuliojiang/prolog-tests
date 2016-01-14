@@ -67,3 +67,17 @@ prod([], 1).
 prod([Head|Tail], Result) :-
     prod(Tail, Temp),
     Result is Head*Temp.
+
+/*
+============
+[6] CONTAINS
+============
+*/
+
+contains(_,[],1).
+contains([L1H|L1T], [L2H|L2T], NewPosition) :-
+    L1H == L2H,
+    contains(L1T, L2T, NewPosition).
+contains([_L1H|L1T], [L2H|L2T], NewPosition) :-
+    contains(L1T, [L2H|L2T], OldPosition),
+    NewPosition is OldPosition + 1. 
