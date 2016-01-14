@@ -56,3 +56,14 @@ hasdups([Head|Tail]) :-
     member(Head, Tail).
 hasdups([_|Tail]) :-
     hasdups(Tail).
+
+/*
+========
+[5] PROD
+========
+*/
+
+prod([], 1).
+prod([Head|Tail], Result) :-
+    prod(Tail, Temp),
+    Result is Head*Temp.
