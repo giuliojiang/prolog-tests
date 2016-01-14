@@ -1,7 +1,6 @@
 /*
-
+==========================
 [1] ACYCLIC DIRECTED GRAPH
-
 */
 
 arc(a, b).
@@ -17,3 +16,18 @@ path(X, Z) :-
 path(X, Z) :-
     arc(X, Y),
     path(Y, Z).
+
+/*
+=================
+[2] PEANO NUMBERS
+*/
+
+plus(0, 0, 0).
+plus(X, 0, X).
+plus(0, Y, Y).
+plus(s(X), Y, s(Z)) :-
+    plus(X, Y, Z).
+
+odd(s(0)).
+odd(s(s(N))) :-
+    odd(N).
