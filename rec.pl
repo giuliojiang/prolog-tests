@@ -31,3 +31,13 @@ plus(s(X), Y, s(Z)) :-
 odd(s(0)).
 odd(s(s(N))) :-
     odd(N).
+
+/*
+[3] ONES_ZEROS
+*/
+
+ones_zeros([]).
+ones_zeros([0|Xs]) :-
+    ones_zeros(Xs).
+ones_zeros([1|Xs]) :-
+    ones_zeros(Xs).
