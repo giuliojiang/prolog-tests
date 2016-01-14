@@ -1,6 +1,7 @@
 /*
 ==========================
 [1] ACYCLIC DIRECTED GRAPH
+==========================
 */
 
 arc(a, b).
@@ -20,6 +21,7 @@ path(X, Z) :-
 /*
 =================
 [2] PEANO NUMBERS
+=================
 */
 
 plus(0, 0, 0).
@@ -33,7 +35,9 @@ odd(s(s(N))) :-
     odd(N).
 
 /*
+==============
 [3] ONES_ZEROS
+==============
 */
 
 ones_zeros([]).
@@ -41,3 +45,14 @@ ones_zeros([0|Xs]) :-
     ones_zeros(Xs).
 ones_zeros([1|Xs]) :-
     ones_zeros(Xs).
+
+/*
+===========
+[4] HASDUPS
+===========
+*/
+
+hasdups([Head|Tail]) :-
+    member(Head, Tail).
+hasdups([_|Tail]) :-
+    hasdups(Tail).
