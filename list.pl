@@ -40,10 +40,15 @@ replace_wrap(Xs, Out) :-
 */
 
 even_members([],[]).
-even_members([X],[]).
+even_members([_X],[]).
 even_members([_Xa,Xb|Xs], [Xb|Zs]) :-
     even_members(Xs, Zs).
 
 /*
-[6] 
+[6] ODD_EVEN_MEMBERS
 */
+
+odd_even_members([],[],[]).
+odd_even_members([X],[X],[]).
+odd_even_members([Xo,Xe|Xs], [Xo|Odds], [Xe|Evens]) :-
+    odd_even_members(Xs, Odds, Evens).
