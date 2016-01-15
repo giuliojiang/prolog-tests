@@ -76,8 +76,14 @@ prod([Head|Tail], Result) :-
 
 contains(_,[],1).
 contains([L1H|L1T], [L2H|L2T], NewPosition) :-
-    L1H == L2H,
+    L1H = L2H,
     contains(L1T, L2T, NewPosition).
 contains([_L1H|L1T], [L2H|L2T], NewPosition) :-
     contains(L1T, [L2H|L2T], OldPosition),
     NewPosition is OldPosition + 1. 
+    
+contains2(Xs, Ys, M) :-
+    append(First, Last, Xs),
+    append(Ys, _End, Last),
+    length(First, N),
+    M is N + 1.
