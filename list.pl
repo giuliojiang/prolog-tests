@@ -34,3 +34,16 @@ arbpairs([X|Xs], [(X,X)|Ys]) :-
 
 replace_wrap(Xs, Out) :-
     findall(wrap(X), member(X, Xs), Out).
+    
+/*
+[5] EVEN_MEMBERS .............................................................
+*/
+
+even_members([],[]).
+even_members([X],[]).
+even_members([_Xa,Xb|Xs], [Xb|Zs]) :-
+    even_members(Xs, Zs).
+
+/*
+[6] 
+*/
