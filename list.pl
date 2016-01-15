@@ -27,3 +27,10 @@ arbpairs([X|Xs], [(X,Y)|Ys]) :-
     Y is 2*X.
 arbpairs([X|Xs], [(X,X)|Ys]) :-
     arbpairs(Xs, Ys).
+    
+/*
+[4] REPLACE_WRAP .............................................................
+*/
+
+replace_wrap(Xs, Out) :-
+    findall(wrap(X), member(X, Xs), Out).
