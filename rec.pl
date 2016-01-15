@@ -87,3 +87,26 @@ contains2(Xs, Ys, M) :-
     append(Ys, _End, Last),
     length(First, N),
     M is N + 1.
+    
+/*
+============
+[7] ADD_POLY
+============
+*/
+
+add_poly([],[],[]).
+add_poly([],Y,Y).
+add_poly(X,[],X).
+add_poly([(Xa,Xb)|Xs], [(Ya,Yb)|Ys], [(Za,Xb)|Zs]) :-
+    Xb = Yb,
+    add_poly(Xs, Ys, Zs),
+    Za is Xa + Ya,
+    Za \= 0.
+add_poly([(Xa,Xb)|Xs], [(Ya,Yb)|Ys], [(Xa,Xb)|Zs]) :-
+    Xb > Yb,
+    add_poly(Xs, [(Ya,Yb)|Ys], Zs),
+    Xa \= 0.
+add_poly([(Xa,Xb)|Xs], [(Ya,Yb)|Ys], [(Ya,Yb)|Zs]) :-
+    Xb < Yb,
+    add_poly([(Xa,Xb)|Xs], Ys, Zs),
+    Ya \= 0.
