@@ -45,10 +45,25 @@ even_members([_Xa,Xb|Xs], [Xb|Zs]) :-
     even_members(Xs, Zs).
 
 /*
-[6] ODD_EVEN_MEMBERS
+[6] ODD_EVEN_MEMBERS .........................................................
 */
 
 odd_even_members([],[],[]).
 odd_even_members([X],[X],[]).
 odd_even_members([Xo,Xe|Xs], [Xo|Odds], [Xe|Evens]) :-
     odd_even_members(Xs, Odds, Evens).
+    
+/*
+[7] NUMVAL ...................................................................
+*/
+
+numval(Number, Number) :-
+    number(Number).
+numval(a(X,Y), Result) :-
+    numval(X, X1),
+    numval(Y, Y1),
+    Result is X1+Y1.
+numval(m(X,Y), Result) :-
+    numval(X, X1),
+    numval(Y, Y1),
+    Result is X1*Y1.
